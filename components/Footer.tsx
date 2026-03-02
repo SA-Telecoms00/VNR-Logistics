@@ -75,15 +75,27 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-gray-300">
                 <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
-                <span>Serving Durban, Johannesburg & Cape Town</span>
+                <div>
+                  <p className="font-semibold">Durban Office</p>
+                  <p>7 Corbrik Road, Queen Nandi Drive</p>
+                </div>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-gray-300">
+                <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold">Johannesburg Office</p>
+                  <p>Corner Lombardi & R55 Truck Stop</p>
+                  <p>Waterfall Rd, Sunderland Ridge AH</p>
+                  <p>Centurion, 0187</p>
+                </div>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
-                <span>+27 XX XXX XXXX</span>
+                <a href="tel:+27729065816" className="hover:text-secondary transition-colors">072 906 5816</a>
               </li>
               <li className="flex items-center gap-2 text-sm text-gray-300">
                 <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
-                <span>info@vnrlogistics.co.za</span>
+                <a href="mailto:Info@vnr.co.za" className="hover:text-secondary transition-colors">Info@vnr.co.za</a>
               </li>
             </ul>
           </div>

@@ -43,9 +43,10 @@ export default function AboutPage() {
       icon: Car,
       title: "Car Carrier Division",
       description:
-        "Our specialized car carrier division offers safe and professional vehicle transportation services.",
+        "Our specialized car carrier division offers safe and professional vehicle transportation services with convenient door-to-door delivery.",
       details: "We prioritize secure loading systems and damage-free transport.",
       features: [
+        "Door-to-door service",
         "Car dealership services",
         "Fleet management solutions",
         "Industrial vehicle transport",
@@ -114,7 +115,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-lg text-gray-700">
               <p>
-                VNR Logistics is a South African road freight company dedicated
+                Established in 2018, VNR Logistics is a South African road freight company dedicated
                 to delivering reliable and professional transport solutions. We
                 serve industries requiring secure and efficient cargo movement
                 across major economic regions including Durban, Johannesburg,
@@ -315,9 +316,9 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
               <div>
                 <div className="text-4xl font-bold text-secondary mb-2">
-                  10+
+                  Since 2018
                 </div>
-                <p className="text-gray-200">Years of Experience</p>
+                <p className="text-gray-200">Serving South Africa</p>
               </div>
               <div>
                 <div className="text-4xl font-bold text-secondary mb-2">3</div>

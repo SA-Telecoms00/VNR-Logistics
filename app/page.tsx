@@ -70,7 +70,7 @@ export default function Home() {
                 </Button>
               </Link>
               <a
-                href="https://wa.me/27XXXXXXXXX"
+                href="https://wa.me/27729065816"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -212,12 +212,13 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-gray-700 mb-6">
                   Our specialized car carrier division offers safe and professional
-                  vehicle transportation services across South Africa. We prioritize
-                  secure loading systems and damage-free transport for every vehicle
-                  in our care.
+                  vehicle transportation services across South Africa with convenient
+                  door-to-door delivery. We prioritize secure loading systems and 
+                  damage-free transport for every vehicle in our care.
                 </p>
                 <div className="space-y-4 mb-8">
                   {[
+                    "Door-to-door service",
                     "Car dealership services",
                     "Fleet management solutions",
                     "Industrial vehicle transport",

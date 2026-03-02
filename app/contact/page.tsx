@@ -90,7 +90,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                    <p className="text-gray-600">+27 XX XXX XXXX</p>
+                    <a href="tel:+27729065816" className="text-gray-600 hover:text-primary transition-colors">072 906 5816</a>
                     <p className="text-sm text-gray-500">
                       Mon-Fri: 8:00 AM - 5:00 PM
                     </p>
@@ -103,7 +103,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Email</h3>
-                    <p className="text-gray-600">info@vnrlogistics.co.za</p>
+                    <a href="mailto:Info@vnr.co.za" className="text-gray-600 hover:text-primary transition-colors">Info@vnr.co.za</a>
                     <p className="text-sm text-gray-500">
                       We'll respond within 24 hours
                     </p>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                       WhatsApp
                     </h3>
                     <a
-                      href="https://wa.me/27XXXXXXXXX"
+                      href="https://wa.me/27729065816"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-green-600 hover:text-green-700 font-medium"
@@ -137,15 +137,21 @@ export default function ContactPage() {
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary mb-1">
-                      Service Areas
+                    <h3 className="font-semibold text-primary mb-2">
+                      Our Offices
                     </h3>
-                    <p className="text-gray-600">
-                      Durban, Johannesburg & Cape Town
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      Nationwide coverage across South Africa
-                    </p>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="font-medium text-gray-700">Durban Office</p>
+                        <p className="text-gray-600 text-sm">7 Corbrik Road, Queen Nandi Drive</p>
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-700">Johannesburg Office</p>
+                        <p className="text-gray-600 text-sm">Corner Lombardi & R55 Truck Stop</p>
+                        <p className="text-gray-600 text-sm">Waterfall Rd, Sunderland Ridge AH</p>
+                        <p className="text-gray-600 text-sm">Centurion, 0187</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
