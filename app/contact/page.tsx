@@ -52,23 +52,47 @@ export default function ContactPage() {
 
   return (
     <div className="pt-20">
-      <section className="bg-gradient-to-br from-primary to-primary-dark text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/car-carrier-mercedes.jpg')] bg-cover bg-center opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <motion.div
+              className="inline-block bg-secondary/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <p className="text-sm font-semibold text-white">Get In Touch</p>
+            </motion.div>
+            
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
               Contact VNR Logistics
-            </h1>
-            <p className="text-xl text-gray-200">
-              Let's Move Your Cargo - Have questions or need immediate
-              assistance? Reach out to us.
-            </p>
+            </motion.h1>
+            
+            <motion.p
+              className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              Have questions or need immediate assistance? Our team is ready to help you with all your logistics needs across South Africa.
+            </motion.p>
           </motion.div>
         </div>
+        
+        {/* Bottom Gradient Divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white"></div>
       </section>
 
       <section className="py-16 md:py-24">
