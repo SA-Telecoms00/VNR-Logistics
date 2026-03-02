@@ -30,92 +30,165 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md py-3"
-          : "bg-white/95 backdrop-blur-sm py-4"
+          ? "bg-white shadow-lg py-2 md:py-3"
+          : "bg-white/95 backdrop-blur-md py-3 md:py-4"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-lg group-hover:bg-secondary transition-colors">
-              <Truck className="h-6 w-6 text-white" />
-            </div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group z-50">
+            <motion.div
+              className="bg-gradient-to-br from-primary to-primary-dark p-2 sm:p-2.5 rounded-lg group-hover:from-secondary group-hover:to-secondary transition-all duration-300 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Truck className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+            </motion.div>
             <div>
-              <h1 className="text-xl font-bold text-primary">VNR Logistics</h1>
-              <p className="text-xs text-gray-600 hidden sm:block">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
+                VNR Logistics
+              </h1>
+              <p className="text-[10px] sm:text-xs text-gray-600 hidden sm:block">
                 Moving Industries Forward
               </p>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-secondary ${
+                className={`relative text-sm xl:text-base font-semibold transition-all duration-200 group ${
                   pathname === link.href
                     ? "text-secondary"
-                    : "text-gray-700"
+                    : "text-gray-700 hover:text-secondary"
                 }`}
               >
                 {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-secondary transition-all duration-200 ${
+                    pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
 
+          {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href="/quote">
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" className="shadow-md hover:shadow-lg transition-shadow">
                 Request a Quote
               </Button>
             </Link>
           </div>
 
-          <button
-            className="lg:hidden p-2"
+          {/* Mobile Menu Button */}
+          <motion.button
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.95 }}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6 text-primary" />
             ) : (
               <Menu className="h-6 w-6 text-primary" />
             )}
-          </button>
+          </motion.button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t"
-          >
-            <nav className="container mx-auto px-4 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Slide-in Menu */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto"
+            >
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b">
+                <div className="flex items-center gap-2">
+                  <div className="bg-gradient-to-br from-primary to-primary-dark p-2 rounded-lg">
+                    <Truck className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-primary">VNR Logistics</h2>
+                    <p className="text-xs text-gray-600">Menu</p>
+                  </div>
+                </div>
+                <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-base font-medium transition-colors hover:text-secondary ${
-                    pathname === link.href
-                      ? "text-secondary"
-                      : "text-gray-700"
-                  }`}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 >
-                  {link.label}
+                  <X className="h-6 w-6 text-primary" />
+                </button>
+              </div>
+
+              {/* Mobile Navigation Links */}
+              <nav className="p-4 sm:p-6 flex flex-col gap-2">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block px-4 py-3 rounded-lg text-base font-semibold transition-all ${
+                        pathname === link.href
+                          ? "bg-secondary/10 text-secondary"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-secondary"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              {/* Mobile CTA */}
+              <div className="p-4 sm:p-6 border-t">
+                <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button variant="secondary" size="lg" className="w-full shadow-md">
+                    Request a Quote
+                  </Button>
                 </Link>
-              ))}
-              <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button variant="secondary" size="lg" className="w-full">
-                  Request a Quote
-                </Button>
-              </Link>
-            </nav>
-          </motion.div>
+              </div>
+
+              {/* Mobile Contact Info */}
+              <div className="p-4 sm:p-6 bg-gray-50 border-t">
+                <p className="text-xs font-semibold text-gray-600 mb-3">Quick Contact</p>
+                <div className="space-y-2 text-sm">
+                  <a href="tel:+27729065816" className="block text-gray-700 hover:text-secondary transition-colors">
+                    📞 072 906 5816
+                  </a>
+                  <a href="mailto:Info@vnr.co.za" className="block text-gray-700 hover:text-secondary transition-colors">
+                    ✉️ Info@vnr.co.za
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
