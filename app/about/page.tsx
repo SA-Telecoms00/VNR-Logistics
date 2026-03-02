@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Target,
@@ -294,6 +295,51 @@ export default function AboutPage() {
                       ))}
                     </ul>
                   </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div className="text-center mb-12" {...fadeInUp}>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Our Fleet in Action
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Professional car carrier services across South Africa
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              { src: "/images/car-carrier-dealership.jpg", alt: "Car carrier at dealership" },
+              { src: "/images/car-carrier-mercedes.jpg", alt: "Mercedes car carrier truck" },
+              { src: "/images/car-carrier-day.jpg", alt: "Car carrier daytime operations" },
+              { src: "/images/car-carrier-hino.jpg", alt: "Hino car carrier truck" },
+              { src: "/images/car-carrier-night.jpg", alt: "Night-time car carrier operations" },
+              { src: "/images/car-carrier-night-highway.jpg", alt: "Car carrier on highway at night" },
+            ].map((image, index) => (
+              <motion.div
+                key={index}
+                className="relative overflow-hidden rounded-lg shadow-lg group cursor-pointer"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={400}
+                  height={256}
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="text-white p-4 font-semibold">{image.alt}</p>
                 </div>
               </motion.div>
             ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
@@ -14,6 +15,7 @@ import {
   Shield,
   Users,
   ArrowRight,
+  Check,
 } from "lucide-react";
 
 const fadeInUp = {
@@ -33,58 +35,148 @@ const staggerContainer = {
 export default function Home() {
   return (
     <div className="pt-20">
-      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-          >
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
-              variants={fadeInUp}
-            >
-              Reliable Road Freight Across South Africa
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl mb-8 text-gray-200"
-              variants={fadeInUp}
-            >
-              Professional logistics solutions connecting Durban, Johannesburg,
-              and Cape Town with speed, safety, and precision.
-            </motion.p>
+      {/* Hero Section - Premium Split Layout */}
+      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white overflow-hidden">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={fadeInUp}
+              className="space-y-8 z-10"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <Link href="/quote">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="text-lg px-8 py-6 h-auto"
-                >
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <a
-                href="https://wa.me/27729065816"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
               >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 h-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary"
-                >
-                  WhatsApp Us
-                </Button>
-              </a>
+                South Africa's Trusted Car & Cargo Transport Specialists
+              </motion.h1>
+
+              <motion.p
+                className="text-lg md:text-xl text-gray-200 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
+                Premium road freight and specialized car carrier transport
+                connecting Durban, Johannesburg, and Cape Town — safely,
+                securely, and on schedule.
+              </motion.p>
+
+              {/* Bullet Points */}
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
+                {[
+                  "Dedicated Car Carrier Fleet",
+                  "Container & Break Bulk Experts",
+                  "Nationwide Major Routes",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="bg-secondary rounded-full p-1">
+                      <Check className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-lg font-medium">{item}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 pt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                <Link href="/quote">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="text-lg px-8 py-6 h-auto w-full sm:w-auto"
+                  >
+                    Request a Quote
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/about">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-lg px-8 py-6 h-auto w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary"
+                  >
+                    View Car Carrier Division
+                  </Button>
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right Side - Image with Floating Cards */}
+            <motion.div
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/car-carrier-dealership.jpg"
+                  alt="VNR Logistics Car Carrier"
+                  width={600}
+                  height={700}
+                  className="w-full h-[500px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+              </div>
+
+              {/* Floating Stat Card 1 */}
+              <motion.div
+                className="absolute top-8 -left-8 bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-100"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-secondary/10 p-3 rounded-lg">
+                    <MapPin className="h-6 w-6 text-secondary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-primary">3</p>
+                    <p className="text-sm text-gray-600">Major Cities Covered</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating Stat Card 2 */}
+              <motion.div
+                className="absolute bottom-8 -right-8 bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-gray-100"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-secondary/10 p-3 rounded-lg">
+                    <Car className="h-6 w-6 text-secondary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 mb-1">Specialized</p>
+                    <p className="text-lg font-bold text-primary">Vehicle Transport</p>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
+
+        {/* Bottom Gradient Divider */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-gray-50"></div>
       </section>
 
       <section className="py-16 md:py-24 bg-gray-50">
@@ -159,11 +251,12 @@ export default function Home() {
             ].map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
               >
                 <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
                   <service.icon className="h-7 w-7 text-primary" />
@@ -240,26 +333,41 @@ export default function Home() {
               </div>
 
               <div className="relative">
-                <div className="bg-gradient-to-br from-primary to-primary-dark text-white p-8 md:p-12 rounded-2xl shadow-2xl">
-                  <Car className="h-16 w-16 text-secondary mb-6" />
-                  <h3 className="text-2xl font-bold mb-4">
-                    Professional Vehicle Transport
-                  </h3>
-                  <p className="text-gray-200 mb-6">
-                    Trusted by dealerships, fleet operators, and industrial clients
-                    for secure, damage-free vehicle transportation.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                      <Shield className="h-8 w-8 text-secondary mb-2" />
-                      <p className="text-sm font-semibold">Secure Loading</p>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                      <CheckCircle2 className="h-8 w-8 text-secondary mb-2" />
-                      <p className="text-sm font-semibold">Damage-Free</p>
+                <motion.div
+                  className="bg-gradient-to-br from-primary to-primary-dark text-white p-8 md:p-12 rounded-2xl shadow-2xl overflow-hidden group"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="absolute inset-0 bg-[url('/images/car-carrier-dealership.jpg')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <Car className="h-16 w-16 text-secondary mb-6" />
+                    <h3 className="text-2xl font-bold mb-4">
+                      Professional Vehicle Transport
+                    </h3>
+                    <p className="text-gray-200 mb-6">
+                      Trusted by dealerships, fleet operators, and industrial clients
+                      for secure, damage-free vehicle transportation.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4">
+                      <motion.div
+                        className="bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                        whileHover={{ y: -5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Shield className="h-8 w-8 text-secondary mb-2" />
+                        <p className="text-sm font-semibold">Secure Loading</p>
+                      </motion.div>
+                      <motion.div
+                        className="bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                        whileHover={{ y: -5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <CheckCircle2 className="h-8 w-8 text-secondary mb-2" />
+                        <p className="text-sm font-semibold">Damage-Free</p>
+                      </motion.div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
