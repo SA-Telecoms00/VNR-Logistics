@@ -256,11 +256,11 @@ export default function CarCarrierPage() {
                 </Button>
               </Link>
               <a
-                href="https://wa.me/27XXXXXXXXX"
+                href="https://wa.me/27729065816"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white">
                   WhatsApp Us
                 </Button>
               </a>
