@@ -251,14 +251,15 @@ export default function Home() {
             ].map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 group cursor-pointer"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl active:shadow-xl transition-all duration-300 group cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
+                whileTap={{ scale: 0.98, y: -8 }}
               >
-                <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 group-active:bg-primary/20 transition-colors">
                   <service.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-3">
@@ -336,9 +337,10 @@ export default function Home() {
                 <motion.div
                   className="bg-gradient-to-br from-primary to-primary-dark text-white p-8 md:p-12 rounded-2xl shadow-2xl overflow-hidden group"
                   whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.99 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="absolute inset-0 bg-[url('/images/car-carrier-dealership.jpg')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-[url('/images/car-carrier-dealership.jpg')] bg-cover bg-center opacity-15 md:opacity-10 md:group-hover:opacity-20 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <Car className="h-16 w-16 text-secondary mb-6" />
                     <h3 className="text-2xl font-bold mb-4">
@@ -350,16 +352,18 @@ export default function Home() {
                     </p>
                     <div className="grid grid-cols-2 gap-4">
                       <motion.div
-                        className="bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                        className="bg-white/15 md:bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 active:bg-white/25 transition-colors cursor-pointer"
                         whileHover={{ y: -5 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
                       >
                         <Shield className="h-8 w-8 text-secondary mb-2" />
                         <p className="text-sm font-semibold">Secure Loading</p>
                       </motion.div>
                       <motion.div
-                        className="bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                        className="bg-white/15 md:bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 active:bg-white/25 transition-colors cursor-pointer"
                         whileHover={{ y: -5 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.2 }}
                       >
                         <CheckCircle2 className="h-8 w-8 text-secondary mb-2" />

@@ -354,15 +354,16 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 1.02 }}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={400}
                   height={256}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-active:opacity-100 transition-opacity duration-300 flex items-end">
                   <p className="text-white p-4 font-semibold">{image.alt}</p>
                 </div>
               </motion.div>
