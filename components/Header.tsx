@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Truck } from "lucide-react";
+import { Menu, X, Truck, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About & Services" },
+  { href: "/quote", label: "Request a Quote" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -111,70 +112,102 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-[9998]"
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-md lg:hidden z-[9998]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
-            {/* Slide-in Menu */}
+            {/* Full-Screen Slide-in Menu */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto z-[9999] flex flex-col"
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed inset-0 bg-primary lg:hidden z-[9999] flex flex-col"
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b bg-gray-50 flex-shrink-0">
-                <h2 className="text-lg font-bold text-primary">Menu</h2>
-                <button
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 flex-shrink-0">
+                {/* Logo */}
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 group">
+                  <div className="bg-gradient-to-br from-secondary to-secondary/80 p-2 rounded-lg">
+                    <Truck className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-white">VNR Logistics</h2>
+                  </div>
+                </Link>
+                {/* Close Button */}
+                <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                   aria-label="Close menu"
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <X className="h-6 w-6 text-primary" />
-                </button>
+                  <X className="h-7 w-7 text-white" />
+                </motion.button>
               </div>
 
-              {/* Mobile Navigation Links */}
-              <nav className="p-6 flex flex-col gap-3 flex-shrink-0">
-                {navLinks.map((link) => (
-                  <div key={link.href}>
+              {/* Mobile Navigation Links - Centered */}
+              <nav className="flex-1 flex flex-col items-center justify-center px-8 space-y-8">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
+                    className="w-full"
+                  >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-4 py-3 rounded-lg text-base font-semibold transition-all ${
+                      className={`block text-center text-2xl sm:text-3xl font-bold transition-all duration-300 py-3 relative group ${
                         pathname === link.href
-                          ? "bg-secondary/10 text-secondary"
-                          : "text-gray-700 hover:bg-gray-100 hover:text-secondary"
+                          ? "text-secondary"
+                          : "text-white hover:text-secondary"
                       }`}
                     >
                       {link.label}
+                      {pathname === link.href && (
+                        <motion.div
+                          layoutId="mobile-active-link"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-secondary rounded-full"
+                        />
+                      )}
                     </Link>
-                  </div>
+                  </motion.div>
                 ))}
               </nav>
 
-              {/* Mobile CTA */}
-              <div className="p-6 border-t flex-shrink-0">
+              {/* Bottom CTA Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="px-6 pb-8 space-y-4 flex-shrink-0"
+              >
                 <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="secondary" size="lg" className="w-full shadow-md">
+                  <motion.button
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold text-lg py-4 rounded-xl shadow-lg transition-all duration-300"
+                  >
                     Request a Quote
-                  </Button>
+                  </motion.button>
                 </Link>
-              </div>
-
-              {/* Mobile Contact Info */}
-              <div className="p-6 bg-gray-50 border-t flex-shrink-0 mt-auto">
-                <p className="text-xs font-semibold text-gray-600 mb-3">Quick Contact</p>
-                <div className="space-y-2 text-sm">
-                  <a href="tel:+27729065816" className="block text-gray-700 hover:text-secondary transition-colors">
-                    📞 072 906 5816
-                  </a>
-                  <a href="mailto:Info@vnr.co.za" className="block text-gray-700 hover:text-secondary transition-colors">
-                    ✉️ Info@vnr.co.za
-                  </a>
-                </div>
-              </div>
+                <a
+                  href="https://wa.me/27729065816"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <motion.button
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full border-2 border-white text-white hover:bg-white hover:text-primary font-bold text-lg py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    WhatsApp Us
+                  </motion.button>
+                </a>
+              </motion.div>
             </motion.div>
           </>
         )}
