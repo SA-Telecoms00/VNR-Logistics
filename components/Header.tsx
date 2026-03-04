@@ -137,13 +137,8 @@ export default function Header() {
 
               {/* Mobile Navigation Links */}
               <nav className="p-6 flex flex-col gap-3 flex-shrink-0">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                {navLinks.map((link) => (
+                  <div key={link.href}>
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -155,7 +150,7 @@ export default function Header() {
                     >
                       {link.label}
                     </Link>
-                  </motion.div>
+                  </div>
                 ))}
               </nav>
 
