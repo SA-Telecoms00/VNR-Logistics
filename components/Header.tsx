@@ -121,10 +121,10 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto z-[9999]"
+              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto z-[9999] flex flex-col"
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b bg-gray-50">
+              <div className="flex items-center justify-between p-4 border-b bg-gray-50 flex-shrink-0">
                 <h2 className="text-lg font-bold text-primary">Menu</h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -136,7 +136,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Navigation Links */}
-              <nav className="p-4 sm:p-6 flex flex-col gap-2">
+              <nav className="p-6 flex flex-col gap-3 flex-shrink-0">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -160,7 +160,7 @@ export default function Header() {
               </nav>
 
               {/* Mobile CTA */}
-              <div className="p-4 sm:p-6 border-t">
+              <div className="p-6 border-t flex-shrink-0">
                 <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)}>
                   <Button variant="secondary" size="lg" className="w-full shadow-md">
                     Request a Quote
@@ -169,7 +169,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Contact Info */}
-              <div className="p-4 sm:p-6 bg-gray-50 border-t">
+              <div className="p-6 bg-gray-50 border-t flex-shrink-0 mt-auto">
                 <p className="text-xs font-semibold text-gray-600 mb-3">Quick Contact</p>
                 <div className="space-y-2 text-sm">
                   <a href="tel:+27729065816" className="block text-gray-700 hover:text-secondary transition-colors">
