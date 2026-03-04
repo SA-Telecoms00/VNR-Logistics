@@ -40,28 +40,28 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-lg py-2 md:py-3"
-          : "bg-white/95 backdrop-blur-md py-3 md:py-4"
+          ? "bg-white shadow-lg h-16 lg:h-20"
+          : "bg-primary shadow-md border-b border-white/10 h-16 lg:h-20 lg:bg-white"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group z-50">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
             <motion.div
-              className="bg-gradient-to-br from-primary to-primary-dark p-2 sm:p-2.5 rounded-lg group-hover:from-secondary group-hover:to-secondary transition-all duration-300 shadow-md"
+              className="bg-gradient-to-br from-secondary to-secondary/80 lg:from-primary lg:to-primary-dark p-2 sm:p-2.5 rounded-lg group-hover:from-secondary group-hover:to-secondary transition-all duration-300 shadow-md"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Truck className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </motion.div>
             <div>
-              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
+              <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white lg:text-primary">
                 VNR Logistics
               </h1>
-              <p className="text-[10px] sm:text-xs text-gray-600 hidden sm:block">
+              <p className="text-[10px] sm:text-xs text-gray-200 lg:text-gray-600 hidden sm:block">
                 Moving Industries Forward
               </p>
             </div>
@@ -100,15 +100,15 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-primary" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-primary" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </motion.button>
         </div>

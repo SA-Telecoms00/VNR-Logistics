@@ -51,7 +51,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/images/car-carrier-mercedes.jpg')] bg-cover bg-center opacity-10"></div>

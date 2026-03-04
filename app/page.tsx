@@ -34,7 +34,7 @@ const staggerContainer = {
 
 export default function Home() {
   return (
-    <div className="pt-20">
+    <div className="pt-16 lg:pt-20">
       {/* Hero Section - Premium Split Layout */}
       <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white overflow-hidden">
         <div className="container mx-auto px-4 py-16 md:py-24">
