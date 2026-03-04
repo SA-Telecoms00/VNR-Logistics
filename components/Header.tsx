@@ -124,7 +124,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed inset-0 bg-[rgba(11,31,58,0.6)] backdrop-blur-md lg:hidden z-[9998]"
+              className="fixed inset-0 bg-[rgba(11,31,58,0.6)] backdrop-blur-md lg:hidden z-[99998]"
               onClick={() => setIsMobileMenuOpen(false)}
               style={{ WebkitBackdropFilter: "blur(12px)" }}
             />
@@ -135,7 +135,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed inset-0 bg-primary lg:hidden z-[9999] flex flex-col"
+              className="fixed inset-0 bg-primary lg:hidden z-[99999] flex flex-col"
             >
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 flex-shrink-0">
