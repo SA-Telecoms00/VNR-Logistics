@@ -26,6 +26,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
@@ -106,14 +118,15 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
+            {/* Backdrop Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-md lg:hidden z-[9998]"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="fixed inset-0 bg-[rgba(11,31,58,0.6)] backdrop-blur-md lg:hidden z-[9998]"
               onClick={() => setIsMobileMenuOpen(false)}
+              style={{ WebkitBackdropFilter: "blur(12px)" }}
             />
             
             {/* Full-Screen Slide-in Menu */}
