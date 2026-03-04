@@ -124,19 +124,12 @@ export default function Header() {
               className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto"
             >
               {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-4 sm:p-6 border-b">
-                <div className="flex items-center gap-2">
-                  <div className="bg-gradient-to-br from-primary to-primary-dark p-2 rounded-lg">
-                    <Truck className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-bold text-primary">VNR Logistics</h2>
-                    <p className="text-xs text-gray-600">Menu</p>
-                  </div>
-                </div>
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b bg-gray-50">
+                <h2 className="text-lg font-bold text-primary">Menu</h2>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Close menu"
                 >
                   <X className="h-6 w-6 text-primary" />
                 </button>
