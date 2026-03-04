@@ -1,15 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Truck, Phone, Mail, MapPin, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isQuotePage = pathname === "/quote";
+
   return (
     <footer>
-      {/* Pre-Footer CTA Banner */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-primary text-white py-16 md:py-20">
+      {/* Pre-Footer CTA Banner - Hidden on Quote Page */}
+      {!isQuotePage && (
+        <section className="bg-gradient-to-br from-primary via-primary-dark to-primary text-white py-16 md:py-20">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -54,6 +59,7 @@ export default function Footer() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* Main Footer */}
       <div className="bg-[#0A1628] text-white">
