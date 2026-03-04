@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
         isScrolled
           ? "bg-white shadow-lg py-2 md:py-3"
           : "bg-white/95 backdrop-blur-md py-3 md:py-4"
@@ -111,7 +111,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-[9998]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
@@ -121,7 +121,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-[280px] sm:w-[320px] bg-white shadow-2xl lg:hidden overflow-y-auto z-[9999]"
             >
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between p-4 sm:p-6 border-b bg-gray-50">
