@@ -18,6 +18,7 @@ import {
   Check,
 } from "lucide-react";
 import CompanyProfile from "@/components/CompanyProfile";
+import WhyChooseSection from "@/components/WhyChooseSection";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -381,78 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Why VNR Logistics?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              We don't just move cargo — we move businesses forward.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: MapPin,
-                title: "Nationwide Coverage",
-                description: "Durban, Johannesburg, Cape Town",
-              },
-              {
-                icon: Clock,
-                title: "Reliable Delivery Schedules",
-                description: "On-time performance you can count on",
-              },
-              {
-                icon: Users,
-                title: "Industry-Focused Logistics",
-                description: "Tailored solutions for your sector",
-              },
-              {
-                icon: Car,
-                title: "Specialized Vehicle Transport",
-                description: "Dedicated car carrier division",
-              },
-              {
-                icon: Shield,
-                title: "Safety & Compliance Focused",
-                description: "Certified and insured operations",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Professional Support",
-                description: "Responsive and reliable service",
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                className="flex items-start gap-4 bg-white p-6 rounded-lg shadow-md"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="bg-secondary/10 p-3 rounded-lg flex-shrink-0">
-                  <feature.icon className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-primary mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyChooseSection />
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
