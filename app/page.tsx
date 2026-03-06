@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
+import CompanyProfile from "@/components/CompanyProfile";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -286,6 +287,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <CompanyProfile />
 
       <section className="py-16 md:py-24 bg-gradient-to-br from-secondary/5 to-primary/5">
         <div className="container mx-auto px-4">
