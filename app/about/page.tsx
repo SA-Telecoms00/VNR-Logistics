@@ -15,7 +15,6 @@ import {
   Package,
   ArrowRight,
 } from "lucide-react";
-import WhyChooseSection from "@/components/WhyChooseSection";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -372,8 +371,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <WhyChooseSection />
     </div>
   );
 }
