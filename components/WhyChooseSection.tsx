@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function WhyChooseSection() {
   return (
@@ -44,7 +42,7 @@ export default function WhyChooseSection() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
             {
               stat: "Since 2018",
@@ -82,68 +80,6 @@ export default function WhyChooseSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <motion.div
-          className="max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Move Your Vehicles or Cargo?
-              </h3>
-              <p className="text-lg text-gray-300">
-                Partner with VNR Logistics for secure, professional transport solutions across South Africa.
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/quote">
-                <motion.button
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#E53935] to-[#C62828] text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  Request a Quote
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </motion.button>
-              </Link>
-
-              <a
-                href="https://wa.me/27729065816"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <motion.button
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp Us
-                </motion.button>
-              </a>
-            </div>
-
-            {/* Contact Info */}
-            <motion.div
-              className="mt-8 pt-8 border-t border-white/20 text-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-            >
-              <p className="text-gray-300 text-sm">
-                Available for quotes and inquiries • Serving Durban, Johannesburg & Cape Town
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
