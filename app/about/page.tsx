@@ -15,6 +15,7 @@ import {
   Package,
   ArrowRight,
 } from "lucide-react";
+import WhyChooseSection from "@/components/WhyChooseSection";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -372,56 +373,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="container mx-auto px-4">
-          <motion.div className="max-w-4xl mx-auto text-center" {...fadeInUp}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why Choose VNR Logistics?
-            </h2>
-            <p className="text-xl text-gray-200 mb-8">
-              We combine industry expertise with a customer-first approach to
-              deliver logistics solutions that drive your business forward. Our
-              team is committed to providing professional, reliable service
-              across all major South African routes.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
-              <div>
-                <div className="text-4xl font-bold text-secondary mb-2">
-                  Since 2018
-                </div>
-                <p className="text-gray-200">Serving South Africa</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-secondary mb-2">3</div>
-                <p className="text-gray-200">Major Cities Served</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-secondary mb-2">
-                  100%
-                </div>
-                <p className="text-gray-200">Customer Satisfaction Focus</p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/quote">
-                <Button size="lg" variant="secondary">
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm"
-                >
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <WhyChooseSection />
     </div>
   );
 }
