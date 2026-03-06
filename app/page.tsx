@@ -18,6 +18,7 @@ import {
   Check,
 } from "lucide-react";
 import CompanyProfile from "@/components/CompanyProfile";
+import WhyChooseSection from "@/components/WhyChooseSection";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -380,6 +381,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <WhyChooseSection />
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
