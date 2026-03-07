@@ -54,7 +54,7 @@ export default function ContactPage() {
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary text-white py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/car-carrier-mercedes.jpg')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/car-carrier-day.jpg')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="max-w-4xl mx-auto text-center"

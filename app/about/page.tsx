@@ -341,11 +341,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { src: "/images/car-carrier-dealership.jpg", alt: "Car carrier at dealership" },
-              { src: "/images/car-carrier-mercedes.jpg", alt: "Mercedes car carrier truck" },
               { src: "/images/car-carrier-day.jpg", alt: "Car carrier daytime operations" },
-              { src: "/images/car-carrier-hino.jpg", alt: "Hino car carrier truck" },
               { src: "/images/car-carrier-night.jpg", alt: "Night-time car carrier operations" },
               { src: "/images/car-carrier-night-highway.jpg", alt: "Car carrier on highway at night" },
+              { src: "/images/container-truck.jpg", alt: "Container transport truck" },
+              { src: "/images/break-bulk-cargo.jpg", alt: "Break bulk cargo transport" },
             ].map((image, index) => (
               <motion.div
                 key={index}
