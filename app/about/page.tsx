@@ -344,8 +344,8 @@ export default function AboutPage() {
               { src: "/images/car-carrier-day.jpg", alt: "Car carrier daytime operations" },
               { src: "/images/car-carrier-night.jpg", alt: "Night-time car carrier operations" },
               { src: "/images/car-carrier-night-highway.jpg", alt: "Car carrier on highway at night" },
-              { src: "/images/container-truck.jpg", alt: "Container transport truck" },
-              { src: "/images/break-bulk-cargo.jpg", alt: "Break bulk cargo transport" },
+              { src: "/images/container-truck.png", alt: "Container transport truck" },
+              { src: "/images/break-bulk-cargo.png", alt: "Break bulk cargo transport" },
             ].map((image, index) => (
               <motion.div
                 key={index}
