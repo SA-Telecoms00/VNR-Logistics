@@ -123,8 +123,8 @@ export default function Footer() {
                   <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-1" />
                   <div className="text-gray-300">
                     <p className="font-semibold text-white mb-1">Johannesburg Office</p>
-                    <p className="text-sm">Corner Lombardi & R55 Truck Stop</p>
-                    <p className="text-sm">Waterfall Rd, Centurion, 0187</p>
+                    <p className="text-sm">Corner Lombardi and Waterfall road</p>
+                    <p className="text-sm">Centurion, 0187</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -132,12 +132,12 @@ export default function Footer() {
                   <div className="text-gray-300">
                     <p className="font-semibold text-white mb-1">Cape Town Office</p>
                     <a 
-                      href="https://maps.google.com/?q=-33.911201,18.554399"
+                      href="https://maps.google.com/?q=3HQ3+GQC+Goodwood,+Cape+Town"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm hover:text-secondary transition-colors"
                     >
-                      Barclay Auto
+                      3HQ3+GQC Goodwood, Cape Town
                     </a>
                   </div>
                 </li>

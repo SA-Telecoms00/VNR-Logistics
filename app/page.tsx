@@ -224,7 +224,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Truck,
@@ -249,6 +249,18 @@ export default function Home() {
                 title: "Break Bulk Cargo",
                 description:
                   "Professional handling of non-containerized cargo requiring specialized care.",
+              },
+              {
+                icon: Package,
+                title: "Consolidation Cargo",
+                description:
+                  "Efficient cargo consolidation services combining multiple shipments for cost-effective transport.",
+              },
+              {
+                icon: Container,
+                title: "Warehousing & Distribution",
+                description:
+                  "Secure warehousing facilities and strategic distribution services across South Africa.",
               },
             ].map((service, index) => (
               <motion.div

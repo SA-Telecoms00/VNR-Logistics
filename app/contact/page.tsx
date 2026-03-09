@@ -171,19 +171,18 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-medium text-gray-700">Johannesburg Office</p>
-                        <p className="text-gray-600 text-sm">Corner Lombardi & R55 Truck Stop</p>
-                        <p className="text-gray-600 text-sm">Waterfall Rd, Sunderland Ridge AH</p>
+                        <p className="text-gray-600 text-sm">Corner Lombardi and Waterfall road</p>
                         <p className="text-gray-600 text-sm">Centurion, 0187</p>
                       </div>
                       <div>
                         <p className="font-medium text-gray-700">Cape Town Office</p>
                         <a 
-                          href="https://maps.google.com/?q=-33.911201,18.554399"
+                          href="https://maps.google.com/?q=3HQ3+GQC+Goodwood,+Cape+Town"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-gray-600 text-sm hover:text-secondary transition-colors underline"
                         >
-                          Barclay Auto
+                          3HQ3+GQC Goodwood, Cape Town
                         </a>
                       </div>
                     </div>
