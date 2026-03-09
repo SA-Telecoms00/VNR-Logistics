@@ -175,6 +175,17 @@ export default function ContactPage() {
                         <p className="text-gray-600 text-sm">Waterfall Rd, Sunderland Ridge AH</p>
                         <p className="text-gray-600 text-sm">Centurion, 0187</p>
                       </div>
+                      <div>
+                        <p className="font-medium text-gray-700">Cape Town Office</p>
+                        <a 
+                          href="https://maps.google.com/?q=-33.911201,18.554399"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 text-sm hover:text-secondary transition-colors underline"
+                        >
+                          Barclay Auto
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -127,6 +127,20 @@ export default function Footer() {
                     <p className="text-sm">Waterfall Rd, Centurion, 0187</p>
                   </div>
                 </li>
+                <li className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-1" />
+                  <div className="text-gray-300">
+                    <p className="font-semibold text-white mb-1">Cape Town Office</p>
+                    <a 
+                      href="https://maps.google.com/?q=-33.911201,18.554399"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm hover:text-secondary transition-colors"
+                    >
+                      Barclay Auto
+                    </a>
+                  </div>
+                </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
                   <a
