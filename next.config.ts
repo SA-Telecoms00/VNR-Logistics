@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  poweredByHeader: false,
+  
+  // Trust the Plesk reverse proxy headers
+  serverExternalPackages: [],
   
   // Security headers for HTTPS enforcement
   async headers() {
@@ -10,6 +14,10 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: 'upgrade-insecure-requests'
+          },
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload'

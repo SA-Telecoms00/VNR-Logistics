@@ -13,6 +13,26 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   createServer(async (req, res) => {
     try {
+      // Trust the reverse proxy (Plesk/nginx/Apache)
+      // Plesk terminates SSL and forwards HTTP internally
+      // We need to tell Next.js the original request was HTTPS
+      const proto = req.headers['x-forwarded-proto'];
+      
+      // If behind a proxy, ensure the protocol is set correctly
+      if (!req.headers['x-forwarded-proto']) {
+        req.headers['x-forwarded-proto'] = 'https';
+      }
+
+      // Force HTTPS redirect if accessed directly over HTTP
+      if (proto === 'http' && !dev) {
+        const host = req.headers.host || hostname;
+        res.writeHead(301, {
+          Location: `https://${host}${req.url}`
+        });
+        res.end();
+        return;
+      }
+
       // Parse request URL
       const parsedUrl = parse(req.url, true);
       

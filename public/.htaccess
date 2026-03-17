@@ -4,8 +4,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Force HTTPS
+    # Force HTTPS (direct access)
     RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Force HTTPS (behind Plesk reverse proxy)
+    RewriteCond %{HTTP:X-Forwarded-Proto} =http
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     
     # Force www to non-www (optional - uncomment if needed)
@@ -15,20 +19,23 @@
 
 # Security Headers
 <IfModule mod_headers.c>
+    # Content Security Policy - Upgrade all HTTP to HTTPS
+    Header always set Content-Security-Policy "upgrade-insecure-requests"
+    
     # Strict Transport Security (HSTS)
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     
     # Prevent MIME type sniffing
-    Header set X-Content-Type-Options "nosniff"
+    Header always set X-Content-Type-Options "nosniff"
     
     # Enable XSS Protection
-    Header set X-XSS-Protection "1; mode=block"
+    Header always set X-XSS-Protection "1; mode=block"
     
     # Prevent clickjacking
-    Header set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Frame-Options "SAMEORIGIN"
     
     # Referrer Policy
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Disable directory browsing
