@@ -91,8 +91,8 @@ export default function CompanyProfile() {
 
                 {/* Download Button */}
                 <a
-                  href="/documents/vnr logistics business profile.pdf"
-                  download="VNR-Logistics-Business-Profile.pdf"
+                  href="/documents/vnr logistics business profile.docx"
+                  download="VNR-Logistics-Business-Profile.docx"
                   className="block w-full"
                 >
                   <Button
@@ -107,7 +107,7 @@ export default function CompanyProfile() {
                 {/* File Info */}
                 <div className="mt-4 pt-4 border-t border-gray-100">
                   <p className="text-sm text-gray-500 text-center">
-                    PDF | Company Overview | Services | Operational Areas
+                    Word Document | Company Overview | Services | Operational Areas
                   </p>
                 </div>
               </motion.div>
