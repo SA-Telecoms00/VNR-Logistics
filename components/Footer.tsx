@@ -152,12 +152,20 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
-                  <a
-                    href="mailto:Info@vnr.co.za"
-                    className="text-gray-300 hover:text-secondary transition-colors"
-                  >
-                    Info@vnr.co.za
-                  </a>
+                  <div className="text-gray-300">
+                    <a
+                      href="mailto:info@vnrlogistics.co.za"
+                      className="hover:text-secondary transition-colors block"
+                    >
+                      info@vnrlogistics.co.za
+                    </a>
+                    <a
+                      href="mailto:veron@vnrlogistics.co.za"
+                      className="hover:text-secondary transition-colors block"
+                    >
+                      veron@vnrlogistics.co.za
+                    </a>
+                  </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <MessageCircle className="h-5 w-5 text-secondary flex-shrink-0" />

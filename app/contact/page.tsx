@@ -127,8 +127,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Email</h3>
-                    <a href="mailto:Info@vnr.co.za" className="text-gray-600 hover:text-primary transition-colors">Info@vnr.co.za</a>
-                    <p className="text-sm text-gray-500">
+                    <a href="mailto:info@vnrlogistics.co.za" className="text-gray-600 hover:text-primary transition-colors block">info@vnrlogistics.co.za</a>
+                    <a href="mailto:veron@vnrlogistics.co.za" className="text-gray-600 hover:text-primary transition-colors block">veron@vnrlogistics.co.za</a>
+                    <p className="text-sm text-gray-500 mt-1">
                       We'll respond within 24 hours
                     </p>
                   </div>
