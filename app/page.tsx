@@ -112,7 +112,7 @@ export default function Home() {
                     variant="outline"
                     className="text-lg px-8 py-6 h-auto w-full sm:w-auto border-2 border-white bg-white/10 text-white hover:bg-white hover:text-primary backdrop-blur-sm"
                   >
-                    View Car Carrier Division
+                    View our services
                   </Button>
                 </Link>
               </motion.div>

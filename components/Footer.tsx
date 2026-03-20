@@ -131,14 +131,7 @@ export default function Footer() {
                   <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-1" />
                   <div className="text-gray-300">
                     <p className="font-semibold text-white mb-1">Cape Town Office</p>
-                    <a 
-                      href="https://maps.google.com/?q=3HQ3+GQC+Goodwood,+Cape+Town"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm hover:text-secondary transition-colors"
-                    >
-                      3HQ3+GQC Goodwood, Cape Town
-                    </a>
+                    <p className="text-sm">3HQ3+GQC Goodwood, Cape Town</p>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">

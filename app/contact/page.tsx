@@ -177,14 +177,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="font-medium text-gray-700">Cape Town Office</p>
-                        <a 
-                          href="https://maps.google.com/?q=3HQ3+GQC+Goodwood,+Cape+Town"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-gray-600 text-sm hover:text-secondary transition-colors underline"
-                        >
-                          3HQ3+GQC Goodwood, Cape Town
-                        </a>
+                        <p className="text-gray-600 text-sm">3HQ3+GQC Goodwood, Cape Town</p>
                       </div>
                     </div>
                   </div>
