@@ -218,117 +218,115 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            {/* Backdrop Overlay - Elegant Dark */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 w-full h-screen bg-[#0B1F3A]/95 backdrop-blur-md lg:hidden z-[9999] flex flex-col"
+            style={{ 
+              WebkitBackdropFilter: "blur(12px)",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100vh"
+            }}
+          >
+            {/* Top Section - Logo & Close Button */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-md lg:hidden z-[99998]"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ WebkitBackdropFilter: "blur(12px)" }}
-            />
-            
-            {/* Mobile Menu - Clean White Design */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ 
-                type: "spring", 
-                damping: 30, 
-                stiffness: 300
-              }}
-              className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-white lg:hidden z-[99999] flex flex-col shadow-2xl"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="flex items-center justify-between px-6 py-6 flex-shrink-0"
             >
-              {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between px-6 py-6 border-b border-gray-200 flex-shrink-0">
-                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2.5 group">
-                  <div className="bg-gradient-to-br from-[#E53935] to-[#C62828] p-2 rounded-xl shadow-md">
-                    <Truck className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-bold bg-gradient-to-r from-[#0B1F3A] to-[#1a3a5c] bg-clip-text text-transparent">VNR Logistics</h2>
-                  </div>
-                </Link>
-                <motion.button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div className="w-6 h-6 relative">
-                    <span className="absolute top-1/2 left-0 w-6 h-0.5 bg-gray-700 rounded-full rotate-45"></span>
-                    <span className="absolute top-1/2 left-0 w-6 h-0.5 bg-gray-700 rounded-full -rotate-45"></span>
-                  </div>
-                </motion.button>
-              </div>
-
-              {/* Mobile Navigation Links - Clean List */}
-              <nav className="flex-1 px-6 py-8 overflow-y-auto">
-                <div className="space-y-2">
-                  {navLinks.map((link, index) => {
-                    const isActive = pathname === link.href;
-                    return (
-                      <motion.div
-                        key={link.href}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 + index * 0.05, duration: 0.4 }}
-                      >
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={`block px-4 py-3.5 rounded-xl font-semibold transition-all duration-300 ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#E53935] to-[#C62828] text-white shadow-md"
-                              : "text-gray-700 hover:bg-gray-100"
-                          }`}
-                        >
-                          {link.label}
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2.5">
+                <div className="bg-gradient-to-br from-[#E53935] to-[#C62828] p-2.5 rounded-xl shadow-lg">
+                  <Truck className="h-6 w-6 text-white" />
                 </div>
-              </nav>
-
-              {/* Bottom CTA Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-                className="px-6 pb-8 space-y-3 flex-shrink-0 border-t border-gray-200 pt-6"
+                <div>
+                  <h2 className="text-xl font-bold text-white">VNR Logistics</h2>
+                  <p className="text-xs text-gray-300">Moving Industries Forward</p>
+                </div>
+              </Link>
+              <motion.button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2.5 hover:bg-white/10 rounded-xl transition-colors"
+                whileTap={{ scale: 0.95 }}
+                aria-label="Close menu"
               >
-                <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)}>
-                  <motion.button
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-[#E53935] to-[#C62828] text-white font-bold text-base py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Request a Quote
-                    <ArrowRight className="h-4 w-4" />
-                  </motion.button>
-                </Link>
-                <a
-                  href="https://wa.me/27729065816"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <motion.button
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold text-base py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle className="h-5 w-5" />
-                    WhatsApp Us
-                  </motion.button>
-                </a>
-              </motion.div>
+                <div className="w-7 h-7 relative">
+                  <span className="absolute top-1/2 left-0 w-7 h-0.5 bg-white rounded-full rotate-45 transform -translate-y-1/2"></span>
+                  <span className="absolute top-1/2 left-0 w-7 h-0.5 bg-white rounded-full -rotate-45 transform -translate-y-1/2"></span>
+                </div>
+              </motion.button>
             </motion.div>
-          </>
+
+            {/* Center Section - Navigation Links (Vertical Stack) */}
+            <nav className="flex-1 flex flex-col items-center justify-center px-6 py-8">
+              <div className="flex flex-col items-center gap-6 w-full max-w-md">
+                {navLinks.map((link, index) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
+                      className="w-full"
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`block text-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#E53935] to-[#C62828] text-white shadow-lg scale-105"
+                            : "text-white hover:bg-white/10 hover:scale-105"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </nav>
+
+            {/* Bottom Section - CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
+              className="px-6 pb-8 space-y-4 flex-shrink-0"
+            >
+              <Link href="/quote" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                <motion.button
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-[#E53935] to-[#C62828] text-white font-bold text-lg py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  Request a Quote
+                  <ArrowRight className="h-5 w-5" />
+                </motion.button>
+              </Link>
+              <a
+                href="https://wa.me/27729065816"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <motion.button
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full border-2 border-white/30 text-white hover:bg-white/10 font-semibold text-lg py-5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                  WhatsApp Us
+                </motion.button>
+              </a>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
